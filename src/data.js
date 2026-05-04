@@ -35,6 +35,12 @@ function useData() {
         },
       ].sort((a, b) => new Date(b.inputDay) - new Date(a.inputDay)),
     ); /*new...2026-05-04というままでは数値として比較できないのでオブジェクトに変換するためにnewを使う*/
+    dayData.map((data) => {
+      <li key={data.inputDay}>
+        {data.inputIsRain ? "☔" : "☀"}
+        {data}
+      </li>;
+    });
   };
 
   return {
