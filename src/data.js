@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function useData() {
   const [day, setDay] = useState("");
@@ -19,7 +19,7 @@ function useData() {
       eria === "" ||
       expense === ""
     ) {
-      setInputResult("すべて入力してください");
+      setInputResult("すべての項目を入力してください");
       return;
     }
     setDayData(
@@ -28,19 +28,14 @@ function useData() {
         {
           inputDay: day,
           inputIsRain: isRain,
-          inputSales: sales,
-          inputTime: time,
+          inputSales: Number(sales),
+          inputTime: Number(time),
           inputEria: eria,
-          inputExpense: expense,
+          inputExpense: Number(expense),
         },
       ].sort((a, b) => new Date(b.inputDay) - new Date(a.inputDay)),
     ); /*new...2026-05-04というままでは数値として比較できないのでオブジェクトに変換するためにnewを使う*/
-    dayData.map((data) => {
-      <li key={data.inputDay}>
-        {data.inputIsRain ? "☔" : "☀"}
-        {data}
-      </li>;
-    });
+    console.log(dayData);
   };
 
   return {

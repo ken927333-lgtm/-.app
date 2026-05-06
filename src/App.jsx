@@ -1,5 +1,6 @@
 import "./App.css";
 import useData from "./data.js";
+import Chart from "./Chart.jsx";
 
 function Header(props) {
   return <h1>{props.title}</h1>;
@@ -30,9 +31,10 @@ function App() {
 
   return (
     <div className="Rbody">
-      <Header title="Uver収益分析アプリ" />
+      <Header title="Uver収益分析" />
       <div className="container">
         <div className="input__wrapper">
+          <p className="input-wrapper__title">配達データを入力</p>
           <div className="data__Input">
             <input
               type="date"
@@ -75,7 +77,25 @@ function App() {
           </button>
           <p>{inputResult}</p>
         </div>
-        <div className="derivary__record">{data}</div>
+        <div className="derivary__record">
+          <a href="#" className="record__header">
+            直近の配達
+          </a>
+          {dayData.slice(0, 3).map((data) => {
+            return (
+              <li key={data.inputDay} className="record__card card">
+                <p>
+                  {data.inputIsRain ? "☔" : "☀"}
+                  {data.inputDay}
+                </p>
+                <p>{data.inputSales}円</p>
+              </li>
+            );
+          })}
+        </div>
+        <div>
+          <Chart dayData={dayData} />
+        </div>
       </div>
     </div>
   );

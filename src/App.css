@@ -221,3 +221,48 @@
 .input__btn {
   margin-top: 7px;
 }
+
+.input-wrapper__title {
+  text-align: start;
+}
+
+.record__card {
+  display: flex;
+  flex-direction: column;
+  margin: 3px;
+}
+
+.record__card:hover {
+  border: 1px solid black;
+}
+
+.card {
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.derivary__record {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(168, 167, 167);
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+  z-index: 3;
+}
+
+.record__header {
+  font-size: 13px;
+  text-decoration: none;
+  transition: 0.3s;
+  position: absolute;
+  top: -13px;
+  z-index: 8;
+  background: white;
+}
+
+.record__header:hover {
+  color: rgb(1, 121, 121);
+}
