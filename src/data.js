@@ -12,14 +12,8 @@ function useData() {
   const [record, setRecord] = useState("");
 
   const btnPush = () => {
-    if (
-      day === "" ||
-      sales === "" ||
-      time === "" ||
-      eria === "" ||
-      expense === ""
-    ) {
-      setInputResult("すべての項目を入力してください");
+    if (day === "" || sales === "" || time === "") {
+      setInputResult("必要項目を入力してください");
       return;
     }
     setDayData(
@@ -35,7 +29,6 @@ function useData() {
         },
       ].sort((a, b) => new Date(b.inputDay) - new Date(a.inputDay)),
     ); /*new...2026-05-04というままでは数値として比較できないのでオブジェクトに変換するためにnewを使う*/
-    console.log(dayData);
   };
 
   return {
