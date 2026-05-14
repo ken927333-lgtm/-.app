@@ -232,10 +232,6 @@
   margin: 3px;
 }
 
-.record__card:hover {
-  border: 1px solid black;
-}
-
 .card {
   padding: 10px;
   border: 1px solid grey;

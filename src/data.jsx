@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 
-function useData() {
+export const DataContext = createContext(null);
+
+export function DataProvider({ children }) {
   const [day, setDay] = useState("");
   const [isRain, setIsRain] = useState(false);
   const [sales, setSales] = useState("");
@@ -31,7 +33,7 @@ function useData() {
     ); /*new...2026-05-04というままでは数値として比較できないのでオブジェクトに変換するためにnewを使う*/
   };
 
-  return {
+  const value = {
     day,
     setDay,
     isRain,
@@ -52,6 +54,12 @@ function useData() {
     record,
     setRecord,
   };
+
+  return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 }
 
-export default useData;
+export function useData() {
+  const context = useContext(DataContext);
+  if (!context) throw new Error("useData must be used within DataProvider");
+  return context;
+}

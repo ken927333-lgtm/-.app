@@ -1,6 +1,7 @@
 import "./App.css";
-import useData from "./data.js";
+import { useData } from "./data.jsx";
 import Chart from "./Chart.jsx";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   return <h1>{props.title}</h1>;
@@ -78,9 +79,9 @@ function HomePage() {
           <p>{inputResult}</p>
         </div>
         <div className="derivary__record">
-          <a href="#" className="record__header">
-            直近の配達3件
-          </a>
+          <Link to="/weekly" className="record__header">
+            週ごとの分析へ
+          </Link>
           {dayData.slice(0, 3).map((data) => {
             return (
               <li key={data.inputDay} className="record__card card">
