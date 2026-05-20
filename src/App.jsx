@@ -15,3 +15,5 @@ function App() {
 }
 
 export default App;
+
+/*cd "C:\Users\user\OneDrive\Desktop\programing\js 学習\React\my-app" */

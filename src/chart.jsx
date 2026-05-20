@@ -12,10 +12,16 @@ import {
 
 function Chart(props) {
   console.log(props.dayData);
+
+  const formatDate = (dateStr) => {
+    const date = new Date(dataStr);
+    return `${date.getMonth() + 1}月${date.getDate()}日`;
+  };
+
   return (
     <ResponsiveContainer width="100%" height={400}>
       <BarChart data={props.dayData}>
-        <XAxis dataKey="inputDay" />
+        <XAxis dataKey="inputDay" tickFormatter={formatDate} />
         <YAxis />
         <Bar dataKey="inputSales" fill="#8884d8" />
       </BarChart>
